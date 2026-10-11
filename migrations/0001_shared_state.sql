@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS app_state (
+  id TEXT PRIMARY KEY NOT NULL,
+  state_json TEXT NOT NULL,
+  updated_at INTEGER NOT NULL
+);

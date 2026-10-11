@@ -1,0 +1,16 @@
+name = "anbar-shared"
+compatibility_date = "2024-11-01"
+main = "worker.mjs"
+
+[assets]
+directory = "dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "anbar-db"
+database_id = "203a3497-03c9-43bb-9a68-52330d40650d"
+
+[vars]
+API_SECRET = "anbar-team-key-change-me-1405"
