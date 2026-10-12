@@ -276,16 +276,13 @@ export function WarehouseApp() {
     toast.message("خارج شدید");
   }
 
-  function download(kind: "entry" | "prod") {
-    const state = useCatering.getState();
-    if (!exportCsv(kind, state.entries, state.prods)) {
-     console.log("Entries:", state.entries);
-console.log("Productions:", state.prods);
-      toast.error(kind === "entry" ? "ورودی برای خروجی نیست" : "تولیدی برای خروجی نیست");
-      return;
-    }
-    toast.success("فایل CSV دانلود شد — در اکسل بازش کنید");
-  }
+ function download(kind: "entry" | "prod") { const state = useCatering.getState();
+
+console.log("نوع خروجی:", kind); console.log("تعداد رکوردهای ورود:", state.entries?.length); console.log("تعداد رکوردهای تولید:", state.prods?.length); console.log("اطلاعات ورود:", state.entries); console.log("اطلاعات تولید:", state.prods);
+
+if (!exportCsv(kind, state.entries, state.prods)) { toast.error(kind === "entry" ? "ورودی برای خروجی نیست" : "تولیدی برای خروجی نیست"); return; }
+
+toast.success("فایل CSV دانلود شد — در اکسل بازش کنید"); }
 
   const role = session?.role;
   const writeEntry = canWriteEntry(role);
