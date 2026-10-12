@@ -279,6 +279,8 @@ export function WarehouseApp() {
   function download(kind: "entry" | "prod") {
     const state = useCatering.getState();
     if (!exportCsv(kind, state.entries, state.prods)) {
+     console.log("Entries:", state.entries);
+console.log("Productions:", state.prods);
       toast.error(kind === "entry" ? "ورودی برای خروجی نیست" : "تولیدی برای خروجی نیست");
       return;
     }
